@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:proyek_akhir/task/detail_task_view.dart';
 
-import '../../data/static_data.dart';
-import '../model/model_task.dart';
+import '../../../data/static_data.dart';
+import 'check_box_circle.dart';
+import 'icon_time.dart';
 
 class CardTask extends StatefulWidget {
   final int index;
@@ -22,14 +23,15 @@ class _CardTaskState extends State<CardTask> {
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: StaticData.listData[widget.index].color,
+        color: StaticData.listData[widget.index].type.color,
         borderRadius: BorderRadius.circular(8),
       ),
       child: InkWell(
         onLongPress: widget.isFalseOntap
             ? null
             : () {
-                StaticData.listData[widget.index].isDone = !StaticData.listData[widget.index].isDone;
+                StaticData.listData[widget.index].isDone =
+                    !StaticData.listData[widget.index].isDone;
                 setState(() {});
               },
         onTap: () {
@@ -71,7 +73,10 @@ class _CardTaskState extends State<CardTask> {
                     ),
                   ],
                 ),
-                CheckBoxCircle(model: StaticData.listData[widget.index], isFalseOntap: widget.isFalseOntap)
+                CheckBoxCircle(
+                  model: StaticData.listData[widget.index],
+                  isFalseOntap: widget.isFalseOntap,
+                )
               ],
             ),
           ],
@@ -82,61 +87,5 @@ class _CardTaskState extends State<CardTask> {
 }
 
 
-class CheckBoxCircle extends StatefulWidget {
-  final ModelTask model;
-  final bool isFalseOntap;
-  const CheckBoxCircle({Key? key, required this.model, required this.isFalseOntap}) : super(key: key);
 
-  @override
-  State<CheckBoxCircle> createState() => _CheckBoxCircleState();
-}
 
-class _CheckBoxCircleState extends State<CheckBoxCircle> {
-  @override
-  Widget build(BuildContext context) {
-    return Transform.scale(
-                  scale: 1.4,
-                  child: Checkbox(
-                    checkColor: Colors.white,
-                    activeColor: Colors.black,
-                    value: widget.model.isDone,
-                    onChanged: widget.isFalseOntap
-                        ? null
-                        : (v) {
-                            widget.model.isDone = v ?? false;
-                            setState(() {});
-                          },
-                  ),
-                );
-  }
-}
-
-class IconTimeWidget extends StatelessWidget {
-  const IconTimeWidget({
-    Key? key,
-    required this.date,
-    required this.icon,
-  }) : super(key: key);
-
-  final String date;
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Icon(
-          icon,
-          size: 20,
-        ),
-        const SizedBox(
-          width: 3,
-        ),
-        Text(
-          date,
-        ),
-      ],
-    );
-  }
-}

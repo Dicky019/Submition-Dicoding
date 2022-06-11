@@ -30,54 +30,60 @@ class StaticData {
     "Desember",
   ];
 
+  static const typeTask = [
+    "Basic", 
+    "Urgent", 
+    "Important", 
+  ];
+
   static final dataTask = [
     ModelTask(
       title: "Homework",
       description: "Tugas Praktikum Pemrograman Mobile",
       date: DateTime.now(),
-      color: Colors.pinkAccent,
+      type: TypeTask(name: "Important", color: Colors.pinkAccent),
       isDone: false,
     ),
     ModelTask(
       title: "Learn",
       description: "Belajar Mendekorasi Container Flutter",
       date: DateTime.now(),
-      color: Colors.blueAccent,
+      type: TypeTask(name: "Basic", color: Colors.blueAccent),
       isDone: true,
     ),
     ModelTask(
       title: "Meeting",
       description: "Meeting dengan teman",
       date: DateTime.now(),
-      color: Colors.yellowAccent,
+      type: TypeTask(name: "Urgent", color: Colors.yellowAccent),
       isDone: false,
     ),
     ModelTask(
       title: "Learn",
       description: "Belajar Dart OOP",
       date: DateTime(2022, 6, 20, 22, 15),
-      color: Colors.blueAccent,
+      type: TypeTask(name: "Basic", color: Colors.blueAccent),
       isDone: false,
     ),
     ModelTask(
       title: "Homework",
       description: "Tugas Praktikum Pemrograman Web",
       date: DateTime(2022, 6, 19, 22, 15),
-      color: Colors.pinkAccent,
+      type: TypeTask(name: "Important", color: Colors.pinkAccent),
       isDone: false,
     ),
     ModelTask(
       title: "Meeting",
       description: "Meeting dengan teman",
       date: DateTime(2022, 6, 18, 22, 15),
-      color: Colors.yellowAccent,
+      type: TypeTask(name: "Urgent", color: Colors.yellowAccent),
       isDone: false,
     ),
     ModelTask(
       title: "Meeting",
       description: "Meeting dengan teman",
       date: DateTime(2022, 6, 17, 22, 15),
-      color: Colors.yellowAccent,
+      type: TypeTask(name: "Urgent", color: Colors.yellowAccent),
       isDone: false,
     ),
   ];
@@ -95,7 +101,7 @@ class StaticData {
     var data = dataTask
         .where((element) => element.date.isAfter(DateTime.now()))
         .toList();
-        data.sort((a, b) => a.date.compareTo(b.date));
+    data.sort((a, b) => a.date.compareTo(b.date));
     return data;
   }
 

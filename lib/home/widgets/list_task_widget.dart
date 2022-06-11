@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../data/static_data.dart';
 
 class TaskListWidget extends StatefulWidget {
-  // final PageController pageController;
   const TaskListWidget({
     Key? key,
   }) : super(key: key);
@@ -35,8 +34,8 @@ class _TaskListState extends State<TaskListWidget> {
               },
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 34,
-                  vertical: 10,
+                 horizontal: 20,
+                  vertical: 7,
                 ),
                 child: Text(
                   StaticData.taskListText[i],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../data/static_data.dart';
-import 'card_widget.dart';
+import '../../shared/widgets/card_widget/card_widget.dart';
 
 class TaskBodyWidget extends StatelessWidget {
   final bool isFalseOntap;

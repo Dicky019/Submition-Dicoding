@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyek_akhir/data/static_data.dart';
-import '../task/widgets/list_task_widget.dart';
+import 'widgets/list_task_widget.dart';
 import '../task/widgets/task_body_widget.dart';
 import 'widgets/welcome_widget.dart';
 

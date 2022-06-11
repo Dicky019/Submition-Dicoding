@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ModelTask {
   final String title;
   final DateTime date;
-  final Color color;
+  final TypeTask type;
   final String description;
   bool isDone;
 
@@ -11,7 +11,17 @@ class ModelTask {
     required this.title,
     required this.description,
     required this.date,
-    required this.color,
+    required this.type,
     required this.isDone,
+  });
+}
+
+class TypeTask {
+  final String name;
+  final Color color;
+
+  TypeTask({
+    required this.name,
+    required this.color,
   });
 }
